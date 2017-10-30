@@ -14,7 +14,10 @@ class ScrapyTest(Spider):
 
     def start_requests(self):
         a = 'http://www.cdht.gov.cn:80/zwgkjddt/121734.jhtml'
-
+        tAt = '1'
+        b = 2
+        c= tAt + 2
+        print c
         yield scrapy.Request(a)
 
     def parse(self, response):
