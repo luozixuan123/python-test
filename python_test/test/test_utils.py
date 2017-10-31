@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from unittest import TestCase
-from python_test.python_test.utils.util import MyUtil
+from ..utils.util import MyUtil
 
 
 class TestMyUtil(TestCase):
