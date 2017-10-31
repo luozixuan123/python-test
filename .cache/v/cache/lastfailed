@@ -1,5 +1,3 @@
 {
-  "test/test_utils.py::TestCase": true, 
-  "test/test_utils.py::TestMyUtil": true, 
   "test/test_utils.py::TestMyUtil::test_get_years_list2": true
 }
