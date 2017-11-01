@@ -7,7 +7,7 @@ from scrapy.spider import Spider
 
 class ScrapyTest(Spider):
     name = "test"
-    1
+
     def __init__(self, name=None, **kwargs):
         Spider.__init__(self, name, **kwargs)
 
@@ -19,3 +19,4 @@ class ScrapyTest(Spider):
     def parse(self, response):
         b = response.body
         t1 = "".join(response.xpath("//h1//text()").extract()).strip()
+        print b + 1
