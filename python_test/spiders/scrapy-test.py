@@ -12,7 +12,7 @@ class ScrapyTest(Spider):
         Spider.__init__(self, name, **kwargs)
 
     def start_requests(self):
-        a = None
+        a = 'http://www.cdht.gov.cn:80/zwgkjddt/121734.jhtml'
 
         yield scrapy.Request(a)
 
