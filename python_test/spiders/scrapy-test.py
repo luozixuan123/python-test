@@ -7,7 +7,7 @@ from scrapy.spider import Spider
 
 class ScrapyTest(Spider):
     name = "test"
-
+    1
     def __init__(self, name=None, **kwargs):
         Spider.__init__(self, name, **kwargs)
 
