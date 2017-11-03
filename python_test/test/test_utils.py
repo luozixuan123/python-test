@@ -17,4 +17,3 @@ class TestMyUtil(TestCase):
         self.assertEqual(result, test_result)
 
 
-
