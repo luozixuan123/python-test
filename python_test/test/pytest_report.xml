@@ -1,0 +1,2 @@
+. python_test/test/test_utils.py::TestMyUtil::test_get_years_list
+. python_test/test/test_utils.py::TestMyUtil::test_get_years_list2
