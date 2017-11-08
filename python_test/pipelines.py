@@ -11,4 +11,3 @@ class PythonTestPipeline(object):
         return item
 
 
-
