@@ -21,9 +21,9 @@ podTemplate(label: 'python_pod',containers: [
 {
 node ('python_pod') {
     
-    def projectName='python-pipeline-k8s'
+    def projectName='python-pipeline-test'
     def sonarReportFile = 'sonar_report.txt'
-    def sonarHostUrl = 'http://sonarqube.platform:9000'
+    def sonarHostUrl = 'http://120.55.61.61:9000'
     //def sonarHostUrl = 'http://116.62.235.239:30622'
 
     stage('Check a project') {
@@ -36,23 +36,23 @@ node ('python_pod') {
                     sh 'pytest --junitxml=./python_test/test/pytest_report.xml'
                     sh 'python python_test/run.py'
                 }
-                //   stage('Sonar Check') {
-                //         def sonarhome = tool name: 'sonarqube scanner 2.5', type: 'hudson.plugins.sonar.SonarRunnerInstallation'
-                //         echo sonarhome + '\\bin'
-                //         def status = sh sonarhome + '/bin/sonar-runner -Dsonar.host.url='+sonarHostUrl+' -Dsonar.username=admin -Dsonar.password=admin -Dsonar.projectName='+projectName+' -Dsonar.projectVersion=1.8.6 -Dsonar.projectKey='+projectName+' -Dsonar.sources=. -X'
-                //     }
-                // stage('Get Sonar Report'){
-                //         sh 'curl -o sonar_report.txt'+ ' ' +projectName+'/api/qualitygates/project_status?projectKey='+projectName
-                //         def jsonPayload = readFile 'sonar_report.txt'
-                //         def slurper = new groovy.json.JsonSlurper()
-                //         def states = slurper.parseText(jsonPayload)
-                //         if (states.projectStatus.status == 'OK'){
-                //             echo 'success'
-                //         }else {
-                //             //error 'sonarqube check fail'
-                //             echo 'fail'
-                //         }
-                // }
+                stage('Sonar Check') {
+                        def sonarhome = tool name: 'sonarqube scanner 2.5', type: 'hudson.plugins.sonar.SonarRunnerInstallation'
+                        echo sonarhome + '\\bin'
+                        def status = sh sonarhome + '/bin/sonar-runner -Dsonar.host.url='+sonarHostUrl+' -Dsonar.username=admin -Dsonar.password=admin -Dsonar.projectName='+projectName+' -Dsonar.projectVersion=1.8.6 -Dsonar.projectKey='+projectName+' -Dsonar.sources=. -X'
+                    }
+                stage('Get Sonar Report'){
+                        sh 'curl -o sonar_report.txt'+ ' ' +projectName+'/api/qualitygates/project_status?projectKey='+projectName
+                        def jsonPayload = readFile 'sonar_report.txt'
+                        def slurper = new groovy.json.JsonSlurper()
+                        def states = slurper.parseText(jsonPayload)
+                        if (states.projectStatus.status == 'OK'){
+                            echo 'success'
+                        }else {
+                            //error 'sonarqube check fail'
+                            echo 'fail'
+                        }
+                }
                 stage('Deploy') {
                     // sh 'python python_test/run.py'
                     //sh 'echo "Wyun4test"|sudo -S scp -r . root@120.55.61.61:/opt/code'
