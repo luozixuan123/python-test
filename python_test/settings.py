@@ -15,6 +15,7 @@ SPIDER_MODULES = ['python_test.spiders']
 NEWSPIDER_MODULE = 'python_test.spiders'
 
 
+
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = 'pythontest (+http://www.yourdomain.com)'
 
