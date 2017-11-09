@@ -36,11 +36,11 @@ node ('python_pod') {
                     sh 'pytest --junitxml=./python_test/test/pytest_report.xml'
                     sh 'python python_test/run.py'
                 }
-                stage('Sonar Check') {
-                        def sonarhome = tool name: 'sonarqube scanner 2.5', type: 'hudson.plugins.sonar.SonarRunnerInstallation'
-                       echo sonarhome + '\\bin'
-                        def status = sh sonarhome + '/bin/sonar-runner -Dsonar.host.url='+sonarHostUrl+' -Dsonar.username=admin -Dsonar.password=admin -Dsonar.projectName='+projectName+' -Dsonar.projectVersion=1.8.6 -Dsonar.projectKey='+projectName+' -Dsonar.sources=. -X'
-                }
+                // stage('Sonar Check') {
+                //         def sonarhome = tool name: 'sonarqube scanner 2.5', type: 'hudson.plugins.sonar.SonarRunnerInstallation'
+                //         echo sonarhome + '\\bin'
+                //         def status = sh sonarhome + '/bin/sonar-runner -Dsonar.host.url='+sonarHostUrl+' -Dsonar.username=admin -Dsonar.password=admin -Dsonar.projectName='+projectName+' -Dsonar.projectVersion=1.8.6 -Dsonar.projectKey='+projectName+' -Dsonar.sources=. -X'
+                // }
                 stage('Get Sonar Report'){
                         sh 'curl -o sonar_report.txt'+ ' ' +projectName+'/api/qualitygates/project_status?projectKey='+projectName
                         def jsonPayload = readFile 'sonar_report.txt'
