@@ -1,6 +1,6 @@
 {
 	"projectName":"python_test",
-	"projectVersion":"1.0",
+	"projectVersion":"1.1",
 	"mainDir": "python_test/run.py",
 	"sonarReportFile":"sonar_report.txt",
 	"sonarHostUrl":"http://sonarqube.kubernetes-plugin:9000",
