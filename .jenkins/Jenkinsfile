@@ -9,7 +9,9 @@ podTemplate(label: 'nhf',containers: [
   ])
 {
 node ('nhf') {
-    
+
+    sh 'ls'
+
     def configFile = readFile("config.json")
     def slurper = new groovy.json.JsonSlurper()
     def configStates = slurper.parseText(configFile)
