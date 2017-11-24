@@ -42,7 +42,7 @@ node ('nhf') {
         def status = sh sonarhome + '/bin/sonar-runner -Dsonar.host.url='+sonarHostUrl+' -Dsonar.username=admin -Dsonar.password=admin -Dsonar.projectName='+projectName+' -Dsonar.projectVersion='+configStates.projectVersion+' -Dsonar.projectKey='+projectName+' -Dsonar.sources=. -X'
         echo 'start check code complete'
     }
-d
+
     stage("get check report"){
         sh 'curl -o sonar_report.txt'+ ' ' +projectName+'/api/qualitygates/project_status?projectKey='+projectName
         def jsonPayload = readFile 'sonar_report.txt'
