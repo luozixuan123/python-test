@@ -1,4 +1,4 @@
-podTemplate(label: 'python_pod',containers: [
+podTemplate(label: 'nhf',containers: [
     containerTemplate(name: 'python', image: 'registry-vpc.cn-hangzhou.aliyuncs.com/luozixuan/python:latest', ttyEnabled: true, command: 'cat'),
     containerTemplate(
             name: 'jnlp',
@@ -8,7 +8,7 @@ podTemplate(label: 'python_pod',containers: [
     )
   ])
 {
-node ('python_pod') {
+node ('nhf') {
     
     def configFile = readFile("config.json")
     def slurper = new groovy.json.JsonSlurper()
