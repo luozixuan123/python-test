@@ -10,7 +10,7 @@ podTemplate(label: 'nhf',containers: [
 {
 node ('nhf') {
     
-    def configFile = readFile("./jenkins/config.json")
+    def configFile = readFile("config.json")
     def slurper = new groovy.json.JsonSlurper()
     def configStates = slurper.parseText(configFile)
 
