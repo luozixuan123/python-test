@@ -1,3 +1,8 @@
+def parseJsonText(String jsonText) {
+  final slurper = new groovy.json.JsonSlurper()
+  return new HashMap<>(slurper.parseText(jsonText))
+}
+
 podTemplate(label: 'nhf',containers: [
     containerTemplate(name: 'python', image: 'registry-vpc.cn-hangzhou.aliyuncs.com/luozixuan/python:latest', ttyEnabled: true, command: 'cat'),
     containerTemplate(
@@ -10,23 +15,26 @@ podTemplate(label: 'nhf',containers: [
 {
 node ('nhf') {
 
-    sh 'ls'
-
-    def configFile = readFile("config.json")
-    def slurper = new groovy.json.JsonSlurper()
-    def configStates = slurper.parseText(configFile)
-
     echo 'ready go'
 
     stage("clone code"){
-        git credentialsId: '434aa890-ec99-4dd4-93ea-686fb6c3a3d2', url: 'https://github.com/luozixuan123/python-test.gt'
+        git credentialsId: '434aa890-ec99-4dd4-93ea-686fb6c3a3d2', url: 'https://github.com/luozixuan123/python-test.git'
         echo 'clone code complete'
     }
+    def configFile = readFile("./.jenkins/config.json")
+    def configStates = parseJsonText(configFile)
 
     stage("python test"){
+
+        stage("start check code"){
+            def sonarhome = tool name: 'sonarqube scanner 3.0.3', type: 'hudson.plugins.sonar.SonarRunnerInstallation'
+            def status = sh sonarhome + '/bin/sonar-scanner -Dsonar.host.url='+configStates.sonarHostUrl+' -Dsonar.projectName='+configStates.projectName+' -Dsonar.projectVersion='+configStates.projectVersion+' -Dsonar.projectKey='+configStates.projectName+' -Dsonar.sources=. -X'
+            echo 'start check code complete'
+        }
+
         container('python'){
             stage("unit test"){
-                sh 'pytest --junitxml=./python_test/test/pytest_report.xml'
+                sh 'pytest --junitxml=./python_test/.jenkins/pytest_report.xml'
                 echo 'unit test complete'
             }
 
@@ -36,26 +44,21 @@ node ('nhf') {
                 }
                 echo 'run py complete'
             }
-        }
-    }
 
-    stage("start check code"){
-        def sonarhome = tool name: 'sonarqube scanner 2.5', type: 'hudson.plugins.sonar.SonarRunnerInstallation'
-        def status = sh sonarhome + '/bin/sonar-runner -Dsonar.host.url='+sonarHostUrl+' -Dsonar.username=admin -Dsonar.password=admin -Dsonar.projectName='+projectName+' -Dsonar.projectVersion='+configStates.projectVersion+' -Dsonar.projectKey='+projectName+' -Dsonar.sources=. -X'
-        echo 'start check code complete'
-    }
+            stage("get check report"){
+                sh 'curl -o sonar_report.txt'+ ' ' +configStates.sonarHostUrl+'/api/qualitygates/project_status?projectKey='+configStates.projectName
+                def jsonPayload = readFile 'sonar_report.txt'
+                def states = parseJsonText(jsonPayload)
+                if (states.projectStatus.status == 'OK'){
+                    echo 'pass sonarqube code check'
+                }else {
+                    echo 'fail sonarqube code check'
+                    error 'sonarqube check fail'
+                }
+                echo 'get check report complete'
+            }
 
-    stage("get check report"){
-        sh 'curl -o sonar_report.txt'+ ' ' +projectName+'/api/qualitygates/project_status?projectKey='+projectName
-        def jsonPayload = readFile 'sonar_report.txt'
-        def states = slurper.parseText(jsonPayload)
-        if (states.projectStatus.status == 'OK'){
-            echo 'pass sonarqube code check'
-        }else {
-            echo 'fail sonarqube code check'
-            error 'sonarqube check fail'
         }
-        echo 'get check report complete'
     }
 
     stage("depoly"){
@@ -64,7 +67,7 @@ node ('nhf') {
     }
 
     stage('park code'){
-        sh 'tar -zcvf code.tar.gz' + configStates.projectName
+        sh 'tar -zcvf code.tar.gz ' + configStates.projectName
         echo 'park code complete'
     }
 

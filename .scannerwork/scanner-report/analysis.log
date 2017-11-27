@@ -1,0 +1,145 @@
+Environment variables:
+  - ACLOCAL_PATH=C:\Program Files\Git\mingw64\share\aclocal;C:\Program Files\Git\usr\share\aclocal
+  - ALLUSERSPROFILE=C:\ProgramData
+  - ANDROID_HOME=E:\jdk1.8
+  - APPDATA=C:\Users\lzx\AppData\Roaming
+  - COMMONPROGRAMFILES=C:\Program Files\Common Files
+  - COMPUTERNAME=DESKTOP-ENJ10HN
+  - COMSPEC=C:\Windows\system32\cmd.exe
+  - CommonProgramFiles(x86)=C:\Program Files (x86)\Common Files
+  - CommonProgramW6432=C:\Program Files\Common Files
+  - DISPLAY=needs-to-be-defined
+  - EXEPATH=C:\Program Files\Git
+  - GOPATH=E:\code\go
+  - GOROOT=E:\go
+  - HOME=C:\Users\lzx
+  - HOMEDRIVE=C:
+  - HOMEPATH=\Users\lzx
+  - HOSTNAME=DESKTOP-ENJ10HN
+  - INFOPATH=C:\Program Files\Git\usr\local\info;C:\Program Files\Git\usr\share\info;C:\Program Files\Git\usr\info;C:\Program Files\Git\share\info
+  - JAVA_HOME=E:\jdk1.8
+  - LANG=zh_CN.UTF-8
+  - LOCALAPPDATA=C:\Users\lzx\AppData\Local
+  - LOGONSERVER=\\DESKTOP-ENJ10HN
+  - MANPATH=C:\Program Files\Git\mingw64\share\man;C:\Program Files\Git\usr\local\man;C:\Program Files\Git\usr\share\man;C:\Program Files\Git\usr\man;C:\Program Files\Git\share\man
+  - MSYSTEM=MINGW64
+  - NUMBER_OF_PROCESSORS=8
+  - OS=Windows_NT
+  - OneDrive=C:\Users\lzx\OneDrive
+  - PATH=C:\Users\lzx\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\local\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Users\lzx\bin;C:\Program Files\Docker\Docker\Resources\bin;C:\Program Files (x86)\Intel\iCLS Client;C:\Program Files\Intel\iCLS Client;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;E:\apache-maven-3.5.0\bin;E:\python;E:\jdk1.8\bin;E:\zookeeper-3.4.9\bin;E:\python\Scripts;C:\Program Files\MySQL\MySQL Utilities 1.6;E:\sonar-scanner-2.5\bin;E:\python\Scripts;C:\Program Files\Git\usr\bin\vendor_perl;C:\Program Files\Git\usr\bin\core_perl
+  - PATHEXT=.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC
+  - PIP_HOME=E:\python\Scripts
+  - PKG_CONFIG_PATH=C:\Program Files\Git\mingw64\lib\pkgconfig;C:\Program Files\Git\mingw64\share\pkgconfig
+  - PLINK_PROTOCOL=ssh
+  - PRINTER=Foxit PhantomPDF Printer
+  - PROCESSOR_ARCHITECTURE=AMD64
+  - PROCESSOR_IDENTIFIER=Intel64 Family 6 Model 94 Stepping 3, GenuineIntel
+  - PROCESSOR_LEVEL=6
+  - PROCESSOR_REVISION=5e03
+  - PROGRAMFILES=C:\Program Files
+  - PSModulePath=C:\Program Files\WindowsPowerShell\Modules;C:\Windows\system32\WindowsPowerShell\v1.0\Modules
+  - PUBLIC=C:\Users\Public
+  - PWD=E:/code/python/python_test
+  - ProgramData=C:\ProgramData
+  - ProgramFiles(x86)=C:\Program Files (x86)
+  - ProgramW6432=C:\Program Files
+  - SESSIONNAME=Console
+  - SHELL=C:\Program Files\Git\usr\bin\bash
+  - SHLVL=1
+  - SSH_ASKPASS=C:/Program Files/Git/mingw64/libexec/git-core/git-gui--askpass
+  - SYSTEMDRIVE=C:
+  - SYSTEMROOT=C:\Windows
+  - TEMP=C:\Users\lzx\AppData\Local\Temp
+  - TERM=xterm
+  - TMP=C:\Users\lzx\AppData\Local\Temp
+  - TMPDIR=C:\Users\lzx\AppData\Local\Temp
+  - USERDOMAIN=DESKTOP-ENJ10HN
+  - USERDOMAIN_ROAMINGPROFILE=DESKTOP-ENJ10HN
+  - USERNAME=lzx
+  - USERPROFILE=C:\Users\lzx
+  - VBOX_MSI_INSTALL_PATH=C:\Program Files\Oracle\VirtualBox\
+  - WINDIR=C:\Windows
+System properties:
+  - awt.toolkit=sun.awt.windows.WToolkit
+  - file.encoding=GBK
+  - file.encoding.pkg=sun.io
+  - file.separator=\
+  - java.awt.graphicsenv=sun.awt.Win32GraphicsEnvironment
+  - java.awt.headless=true
+  - java.awt.printerjob=sun.awt.windows.WPrinterJob
+  - java.class.path=E:/sonar-scanner-3.0.3.778/lib/sonar-scanner-cli-3.0.3.778.jar
+  - java.class.version=52.0
+  - java.endorsed.dirs=E:\jdk1.8\jre\lib\endorsed
+  - java.ext.dirs=E:\jdk1.8\jre\lib\ext;C:\Windows\Sun\Java\lib\ext
+  - java.home=E:\jdk1.8\jre
+  - java.io.tmpdir=C:\Users\lzx\AppData\Local\Temp\
+  - java.library.path=E:\jdk1.8\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Users\lzx\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\local\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Users\lzx\bin;C:\Program Files\Docker\Docker\Resources\bin;C:\Program Files (x86)\Intel\iCLS Client;C:\Program Files\Intel\iCLS Client;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;E:\apache-maven-3.5.0\bin;E:\python;E:\jdk1.8\bin;E:\zookeeper-3.4.9\bin;E:\python\Scripts;C:\Program Files\MySQL\MySQL Utilities 1.6;E:\sonar-scanner-2.5\bin;E:\python\Scripts;C:\Program Files\Git\usr\bin\vendor_perl;C:\Program Files\Git\usr\bin\core_perl;.
+  - java.runtime.name=Java(TM) SE Runtime Environment
+  - java.runtime.version=1.8.0_31-b13
+  - java.specification.name=Java Platform API Specification
+  - java.specification.vendor=Oracle Corporation
+  - java.specification.version=1.8
+  - java.vendor=Oracle Corporation
+  - java.vendor.url=http://java.oracle.com/
+  - java.vendor.url.bug=http://bugreport.sun.com/bugreport/
+  - java.version=1.8.0_31
+  - java.vm.info=mixed mode
+  - java.vm.name=Java HotSpot(TM) 64-Bit Server VM
+  - java.vm.specification.name=Java Virtual Machine Specification
+  - java.vm.specification.vendor=Oracle Corporation
+  - java.vm.specification.version=1.8
+  - java.vm.vendor=Oracle Corporation
+  - java.vm.version=25.31-b07
+  - line.separator=
+
+  - os.arch=amd64
+  - os.name=Windows 8.1
+  - os.version=6.3
+  - path.separator=;
+  - project.home=E:/code/python/python_test
+  - scanner.home=E:/sonar-scanner-3.0.3.778
+  - sun.arch.data.model=64
+  - sun.boot.class.path=E:\jdk1.8\jre\lib\resources.jar;E:\jdk1.8\jre\lib\rt.jar;E:\jdk1.8\jre\lib\sunrsasign.jar;E:\jdk1.8\jre\lib\jsse.jar;E:\jdk1.8\jre\lib\jce.jar;E:\jdk1.8\jre\lib\charsets.jar;E:\jdk1.8\jre\lib\jfr.jar;E:\jdk1.8\jre\classes
+  - sun.boot.library.path=E:\jdk1.8\jre\bin
+  - sun.cpu.endian=little
+  - sun.cpu.isalist=amd64
+  - sun.desktop=windows
+  - sun.io.unicode.encoding=UnicodeLittle
+  - sun.java.command=org.sonarsource.scanner.cli.Main -Dsonar.host.url=http://118.31.0.218:30025 -Dsonar.projectName=python_test -Dsonar.projectVersion=1.1 -Dsonar.projectKey=python_test -Dsonar.sources=. -X
+  - sun.java.launcher=SUN_STANDARD
+  - sun.jnu.encoding=GBK
+  - sun.management.compiler=HotSpot 64-Bit Tiered Compilers
+  - sun.os.patch.level=
+  - user.country=CN
+  - user.dir=E:\code\python\python_test
+  - user.home=C:\Users\lzx
+  - user.language=zh
+  - user.name=lzx
+  - user.script=
+  - user.timezone=Asia/Shanghai
+  - user.variant=
+SonarQube plugins:
+  - SonarC# 6.5.0.3766 (csharp)
+  - SonarPython 1.8.0.1496 (python)
+  - SonarJava 4.15.0.12310 (java)
+  - Chinese Pack 1.18 (l10nzh)
+  - Flex 2.3 (flex)
+  - SonarQube :: Plugins :: SCM :: Git 1.3.0.869 (scmgit)
+  - SonarXML 1.4.3.1027 (xml)
+  - SonarPHP 2.11.0.2485 (php)
+  - SonarTS 1.1.0.1079 (typescript)
+  - SonarQube :: Plugins :: SCM :: SVN 1.6.0.860 (scmsvn)
+  - SonarJS 3.2.0.5506 (javascript)
+Global properties:
+  - sonar.core.id=AV_7KMtTx9JZPwBwWNZl
+  - sonar.core.startTime=2017-11-27T01:49:22+0000
+Settings for module: python_test
+  - sonar.host.url=http://118.31.0.218:30025
+  - sonar.projectBaseDir=E:\code\python\python_test
+  - sonar.projectKey=python_test
+  - sonar.projectName=python_test
+  - sonar.projectVersion=1.1
+  - sonar.sourceEncoding=GBK
+  - sonar.sources=.
+  - sonar.verbose=true
+  - sonar.working.directory=E:\code\python\python_test\.scannerwork
