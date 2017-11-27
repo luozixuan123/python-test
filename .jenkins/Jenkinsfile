@@ -37,7 +37,7 @@ node ('nhf') {
         container('python'){
             //进行python的单元测试
             stage("unit test"){
-                sh 'pytest --junitxml=./python_test/.jenkins/pytest_report.xml'
+                sh 'pytest --junitxml=.jenkins/pytest_report.xml'
                 echo 'unit test complete'
             }
 
@@ -80,7 +80,7 @@ node ('nhf') {
 
     //生成测试报告
     stage('push test report'){
-        junit allowEmptyResults: true, testResults: 'unittest_report.xml'
+        junit allowEmptyResults: true, testResults: '.jenkins/pytest_report.xml'
         echo 'push test report complete'
     }
 
