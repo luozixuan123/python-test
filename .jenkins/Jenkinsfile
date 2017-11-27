@@ -26,18 +26,22 @@ node ('nhf') {
 
     stage("python test"){
 
+        //进行sonarqube的代码检查
         stage("start check code"){
             def sonarhome = tool name: 'sonarqube scanner 3.0.3', type: 'hudson.plugins.sonar.SonarRunnerInstallation'
             def status = sh sonarhome + '/bin/sonar-scanner -Dsonar.host.url='+configStates.sonarHostUrl+' -Dsonar.projectName='+configStates.projectName+' -Dsonar.projectVersion='+configStates.projectVersion+' -Dsonar.projectKey='+configStates.projectName+' -Dsonar.sources=. -X'
             echo 'start check code complete'
         }
 
+        //进入容器内部
         container('python'){
+            //进行python的单元测试
             stage("unit test"){
                 sh 'pytest --junitxml=./python_test/.jenkins/pytest_report.xml'
                 echo 'unit test complete'
             }
 
+            //根据需要可以运行python文件
             stage("run py"){
                 if (configStates.mainDir != ""){
                     sh 'python ' + configStates.mainDir
@@ -45,6 +49,7 @@ node ('nhf') {
                 echo 'run py complete'
             }
 
+            //获取sonarqube检查的报告
             stage("get check report"){
                 sh 'curl -o sonar_report.txt'+ ' ' +configStates.sonarHostUrl+'/api/qualitygates/project_status?projectKey='+configStates.projectName
                 def jsonPayload = readFile 'sonar_report.txt'
@@ -61,21 +66,25 @@ node ('nhf') {
         }
     }
 
+    //检查通过则部署
     stage("depoly"){
         // ssh
         echo 'deploy complete'
     }
 
+    //打包代码
     stage('park code'){
         sh 'tar -zcvf code.tar.gz ' + configStates.projectName
         echo 'park code complete'
     }
 
+    //生成测试报告
     stage('push test report'){
         junit allowEmptyResults: true, testResults: 'unittest_report.xml'
         echo 'push test report complete'
     }
 
+    //生成代码包
     stage('archive artifacts'){
         archiveArtifacts 'code.tar.gz'
         echo 'archive artifacts complete'
