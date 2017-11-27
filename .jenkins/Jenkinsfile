@@ -22,9 +22,7 @@ node ('nhf') {
         echo 'clone code complete'
     }
     def configFile = readFile("./.jenkins/config.json")
-    // def configStates = parseJsonText(configFile)
-    def slurper = new groovy.json.JsonSlurper()
-    def configStates = slurper.parseText(configFile)
+    def configStates = parseJsonText(configFile)
 
     stage("python test"){
 
