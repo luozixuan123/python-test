@@ -23,6 +23,7 @@ node ('nhf') {
     }
     def configFile = readFile("./.jenkins/config.json")
     def configStates = parseJsonText(configFile)
+    def messageUrl = configStates.jenkinsUrl+'/job/'+configStates.projectName
 
     stage("python test"){
 
@@ -76,7 +77,7 @@ node ('nhf') {
     stage("depoly"){
             sshagent (credentials: ['53d08ad8-640c-4763-b083-96d694dad736']) {
             sh 'ssh -o StrictHostKeyChecking=no -l root 106.14.148.100 uname -a'
-            sh 'scp -r . root@106.14.148.100:/code'
+            sh 'scp -r . root@106.14.148.100:/test_code'
         }
     }
 
