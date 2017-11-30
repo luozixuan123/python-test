@@ -74,8 +74,10 @@ node ('nhf') {
 
     //检查通过则部署
     stage("depoly"){
-        // ssh
-        echo 'deploy complete'
+            sshagent (credentials: ['53d08ad8-640c-4763-b083-96d694dad736']) {
+            sh 'ssh -o StrictHostKeyChecking=no -l root 106.14.148.100 uname -a'
+            sh 'scp -r . root@106.14.148.100:/code'
+        }
     }
 
     //打包代码
