@@ -6,6 +6,4 @@
 	"sonarHostUrl":"http://sonarqube.kubernetes-plugin:9000",
 	"jenkinsUrl":"http://localhost:8080",
 	"dingUrl":"https://oapi.dingtalk.com/robot/send?access_token=5b22f6852225ed5effcae5e601018d3ad31d084d22bf5f988cdd9bf7e0db44fa",
-	"title":"" ,
-	"messageUrl":""
 }

@@ -35,34 +35,40 @@ node ('nhf') {
 
         //进入容器内部
         container('python'){
-            //进行python的单元测试
-            stage("unit test"){
-                sh 'pytest --junitxml=.jenkins/pytest_report.xml'
-                echo 'unit test complete'
-            }
 
-            //根据需要可以运行python文件
-            stage("run py"){
-                if (configStates.mainDir != ""){
-                    sh 'python ' + configStates.mainDir
+            try{
+                //进行python的单元测试
+                stage("unit test"){
+                    sh 'pytest --junitxml=.jenkins/pytest_report.xml'
+                    echo 'unit test complete'
                 }
-                echo 'run py complete'
-            }
 
-            //获取sonarqube检查的报告
-            stage("get check report"){
-                sh 'curl -o sonar_report.txt'+ ' ' +configStates.sonarHostUrl+'/api/qualitygates/project_status?projectKey='+configStates.projectName
-                def jsonPayload = readFile 'sonar_report.txt'
-                def states = parseJsonText(jsonPayload)
-                if (states.projectStatus.status == 'OK'){
-                    echo 'pass sonarqube code check'
-                }else {
-                    echo 'fail sonarqube code check'
-                    error 'sonarqube check fail'
+                //根据需要可以运行python文件
+                stage("run py"){
+                    if (configStates.mainDir != ""){
+                        sh 'python ' + configStates.mainDir
+                    }
+                    echo 'run py complete'
                 }
-                echo 'get check report complete'
-            }
 
+                //获取sonarqube检查的报告
+                stage("get check report"){
+                    sh 'curl -o sonar_report.txt'+ ' ' +configStates.sonarHostUrl+'/api/qualitygates/project_status?projectKey='+configStates.projectName
+                    def jsonPayload = readFile 'sonar_report.txt'
+                    def states = parseJsonText(jsonPayload)
+                    if (states.projectStatus.status == 'OK'){
+                        echo 'pass sonarqube code check'
+                    }else {
+                        echo 'fail sonarqube code check'
+                        error 'sonarqube check fail'
+                    }
+                    echo 'get check report complete'
+                }
+            }catch(Exception e){
+                sh """
+                curl '${configStates.dingUrl}' -H 'Content-Type: application/json' -d '{"link": {"text": "bulid fail", "title":"build", "picUrl": "http://picm.photophoto.cn/015/037/001/0370010335.jpg", "messageUrl": "${messageUrl}"}, "msgtype": "link"}'
+                """
+            }
         }
     }
 
