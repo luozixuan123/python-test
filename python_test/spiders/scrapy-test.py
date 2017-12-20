@@ -19,6 +19,4 @@ class ScrapyTest(Spider):
     def parse(self, response):
         b = response.body
         t1 = "".join(response.xpath("//h1//text()").extract()).strip()
-        print b + 1
-        print b + 2
-        print b + 3
+
